@@ -1,0 +1,13 @@
+/* styles.css */
+
+.book {
+    border: 1px solid black;
+    display: inline-block;
+    margin: 5px;
+    padding: 8px;
+    width: 200px; /* Adjust width as needed */
+}
+
+.book p {
+    margin: 5px 0;
+}

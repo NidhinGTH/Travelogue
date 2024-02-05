@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-3">
+    <h2>Search Results</h2>
+    <form method="get" action="{% url 'search_view' %}">
+      {% crispy form %}
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+    <hr>
+    {% if places %}
+      <ul>
+        {% for place in places %}
+          <li>{{ place.name }} - {{ place.desc }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No places found.</p>
+    {% endif %}
+  </div>
+{% endblock %}

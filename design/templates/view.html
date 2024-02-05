@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container mt-3">
+        <h1 class="text-center">View Places</h1>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for place in t %}
+                <div class="col">
+                    <div class="card">
+                        {% if place.cover %}
+                            <img src="{{ place.cover.url }}" class="card-img-top" alt="{{ place.name }}">
+                        {% else %}
+                            <img src="{% static 'path/to/placeholder-image.jpg' %}" class="card-img-top" alt="No Image Available">
+                        {% endif %}
+
+                        <div class="card-body">
+                            <h5 class="card-title">{{ place.name }}</h5>
+                            <p class="card-text">{{ place.desc }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
